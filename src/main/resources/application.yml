@@ -1,0 +1,53 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: service1-get
+          uri: http://localhost:8082/service1  # Direct URL to service1
+          predicates:
+            - Method=GET
+            - Path=/service1/**
+
+        - id: service1-put
+          uri: http://localhost:8082/service1  # Direct URL to service1
+          predicates:
+            - Method=PUT
+            - Path=/service1/**
+
+        - id: service1-post
+          uri: http://localhost:8082/service1  # Direct URL to service1
+          predicates:
+            - Method=POST
+            - Path=/service1/**
+
+        - id: service1-delete
+          uri: http://localhost:8082/service1  # Direct URL to service1
+          predicates:
+            - Method=DELETE
+            - Path=/service1/**
+
+        - id: service2-get
+          uri: http://localhost:8084/service1
+          predicates:
+            - Method=GET
+            - Path=/service2/**
+        - id: service2-post
+          uri: http://localhost:8084/service1
+          predicates:
+            - Method= POST
+            - Path=/service2/**
+
+        - id: service2-put
+          uri: http://localhost:8084/service1
+          predicates:
+            - Method=PUT
+            - Path=/service2/**
+
+        - id: service2-delete
+          uri: http://localhost:8084/service1
+          predicates:
+            - Method= Delete
+            - Path= /service2/**
+t
+server:
+  port: 8083
